@@ -58,6 +58,14 @@ On Linux, the mod includes support for:
 
 ## Controls
 
+### Game Controls
+
+- Arrow keys: move through most menus and choices
+- Enter: confirm the current selection
+- Escape: go back or open the pause/back prompt on supported screens
+
+### Mod Controls
+
 - `R`: repeat last spoken line
 - `T`: read current player stats
 
