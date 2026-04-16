@@ -1,0 +1,6 @@
+Monster Camp Accessibility Mod release package
+Version: 0.9.0-beta
+Build DLL: GameMod.dll
+SHA256:
+1E8BF698F9375C1B6AD406736D399E9177E19FB095BCEDA6E8402E6C715C6F8B
+Full game target: Monster Prom 2 - Monster Camp
