@@ -105,6 +105,12 @@ The included `English.lang` file can be used as a translation template. Each lin
 
 Windows 10 or later only.
 
+## Troubleshooting
+
+- **No speech at all:** make sure `GameMod.dll`, `prism.dll`, and the `Prism` folder are in `Mods`, and that MelonLoader is installed. Running the installer again (Repair) fixes most problems.
+- **Speech uses the Windows voice instead of your screen reader:** start your screen reader before the game, then restart the game.
+- **Still stuck:** the MelonLoader log is at `<Game Folder>\MelonLoader\Latest.log`. It shows whether the mod loaded and which speech backend Prism chose.
+
 ## Building from source
 
 For developers. You need the .NET SDK (version 6 or later) and the game installed with MelonLoader, because the build uses the game's own files and MelonLoader's files from the game folder.
@@ -133,3 +139,4 @@ To publish a release: update `changes-latest.md`, build the zip, create a draft 
 - Codex
 - Claude
 - The installer is built with [Loadstone](https://github.com/bradjrenshaw/loadstone) by Bradley Renshaw.
+- Speech uses [Prism](https://github.com/ethindp/prism) by Ethin Probst, licensed under the Mozilla Public License 2.0.
