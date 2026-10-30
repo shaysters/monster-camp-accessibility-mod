@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "kind": "game",
+  "id": "monster-prom-2-monster-camp",
+  "name": "Monster Prom 2: Monster Camp",
+  "detect": {
+    "steam": {
+      "appId": 1140270,
+      "dirName": "Monster Prom 2 - Monster Camp"
+    },
+    "markers": [
+      "MonsterCamp.exe"
+    ]
+  }
+}

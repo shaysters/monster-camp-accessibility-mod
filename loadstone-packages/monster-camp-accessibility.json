@@ -1,0 +1,67 @@
+{
+  "manifestVersion": 1,
+  "id": "monster-camp-accessibility",
+  "name": "Monster Camp Accessibility",
+  "description": "Screen reader and text-to-speech accessibility for Monster Prom 2: Monster Camp. Speaks menus, story events, turns, shops, camp locations and campfire seats, and reads the online code when you host.",
+  "authors": [
+    "Shaysters",
+    "Codex",
+    "Claude"
+  ],
+  "game": "monster-prom-2-monster-camp",
+  "distributions": {
+    "steam": "supported"
+  },
+  "dependencies": [
+    {
+      "id": "melonloader-win-x86"
+    }
+  ],
+  "channels": {
+    "stable": {
+      "source": "release"
+    }
+  },
+  "install": [
+    {
+      "step": "ensure-dirs",
+      "paths": [
+        "${gameDir}/Mods"
+      ]
+    },
+    {
+      "step": "extract-archive",
+      "routes": [
+        {
+          "from": "**",
+          "to": "${gameDir}/Mods"
+        }
+      ]
+    },
+    {
+      "step": "expect",
+      "checks": [
+        {
+          "fileExists": "${gameDir}/Mods/GameMod.dll",
+          "message": "The download didn't contain the mod (no GameMod.dll)."
+        },
+        {
+          "fileExists": "${gameDir}/Mods/prism.dll",
+          "message": "The download didn't contain the speech library (no prism.dll)."
+        }
+      ]
+    }
+  ],
+  "cleanupLegacy": [
+    "${gameDir}/Mods/Tolk.dll",
+    "${gameDir}/Mods/nvdaControllerClient32.dll",
+    "${gameDir}/Mods/nvdaControllerClient64.dll"
+  ],
+  "packaging": {
+    "artifacts": [
+      {
+        "file": "../dist/MonsterCampAccessibility.zip"
+      }
+    ]
+  }
+}

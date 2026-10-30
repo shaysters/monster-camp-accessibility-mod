@@ -1,0 +1,55 @@
+{
+  "manifestVersion": 1,
+  "kind": "tool",
+  "id": "melonloader-win-x86",
+  "name": "MelonLoader (32-bit Windows)",
+  "description": "MelonLoader, the mod loader for Unity games. This is the 32-bit Windows build, which Monster Prom 2: Monster Camp needs.",
+  "authors": [
+    "LavaGang"
+  ],
+  "license": "Apache-2.0",
+  "source": "github:LavaGang/MelonLoader",
+  "conflictPolicy": "keep-newer",
+  "pinnedRelease": {
+    "version": "0.7.2",
+    "artifacts": [
+      {
+        "file": "MelonLoader.x86.zip",
+        "sha256": "6d10158d874cc24dc1d76658b297f389e053786d8ac6cbbed1928e17d9029785",
+        "when": {
+          "platform": "windows"
+        }
+      }
+    ]
+  },
+  "install": [
+    {
+      "step": "extract-archive",
+      "routes": [
+        {
+          "from": "**",
+          "to": "${gameDir}"
+        }
+      ]
+    },
+    {
+      "step": "ensure-dirs",
+      "paths": [
+        "${gameDir}/Mods"
+      ]
+    },
+    {
+      "step": "expect",
+      "checks": [
+        {
+          "fileExists": "${gameDir}/version.dll",
+          "message": "The MelonLoader download didn't contain version.dll."
+        },
+        {
+          "fileExists": "${gameDir}/MelonLoader/net35/MelonLoader.dll",
+          "message": "The MelonLoader download didn't contain MelonLoader.dll."
+        }
+      ]
+    }
+  ]
+}

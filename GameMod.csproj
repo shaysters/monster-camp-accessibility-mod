@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>GameMod</AssemblyName>
+    <RootNamespace>GameMod</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ManagedDir Condition="'$(ManagedDir)' == ''">$(GAME_MANAGED_DIR)</ManagedDir>
+    <MelonLoaderDir Condition="'$(MelonLoaderDir)' == ''">$(MELONLOADER_DIR)</MelonLoaderDir>
+    <MelonLoaderDll Condition="'$(MelonLoaderDll)' == '' and '$(MelonLoaderDir)' != ''">$(MelonLoaderDir)\net35\MelonLoader.dll</MelonLoaderDll>
+    <MelonLoaderDll Condition="'$(MelonLoaderDll)' == '' and '$(MelonLoaderDir)' == ''">$(MELONLOADER_DLL)</MelonLoaderDll>
+  </PropertyGroup>
+
+  <Target Name="ValidatePaths" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(ManagedDir)' == ''" Text="Set ManagedDir (msbuild property) or GAME_MANAGED_DIR (environment variable) to your game's *_Data\\Managed folder." />
+    <Error Condition="!Exists('$(ManagedDir)')" Text="ManagedDir does not exist: $(ManagedDir)" />
+    <Error Condition="'$(MelonLoaderDll)' == ''" Text="Set MelonLoaderDir/MELONLOADER_DIR or MelonLoaderDll/MELONLOADER_DLL to MelonLoader.dll." />
+    <Error Condition="!Exists('$(MelonLoaderDll)')" Text="MelonLoader.dll not found: $(MelonLoaderDll)" />
+  </Target>
+
+  <ItemGroup>
+    <Compile Include="ModMain.cs" />
+    <Compile Include="Toolkit\\**\\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MelonLoader">
+      <HintPath>$(MelonLoaderDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(MelonLoaderDir)\net35\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="Assembly-CSharp" Condition="Exists('$(ManagedDir)\\Assembly-CSharp.dll')">
+      <HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine" Condition="Exists('$(ManagedDir)\\UnityEngine.dll')">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule" Condition="Exists('$(ManagedDir)\\UnityEngine.CoreModule.dll')">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule" Condition="Exists('$(ManagedDir)\\UnityEngine.InputLegacyModule.dll')">
+      <HintPath>$(ManagedDir)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI" Condition="Exists('$(ManagedDir)\\UnityEngine.UI.dll')">
+      <HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule" Condition="Exists('$(ManagedDir)\\UnityEngine.UIModule.dll')">
+      <HintPath>$(ManagedDir)\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="netstandard" Condition="Exists('$(ManagedDir)\\netstandard.dll')">
+      <HintPath>$(ManagedDir)\netstandard.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

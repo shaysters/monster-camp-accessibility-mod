@@ -1,0 +1,9 @@
+{
+  "mode": "single-mod",
+  "mod": "monster-camp-accessibility",
+  "title": "Monster Camp Accessibility Installer",
+  "registries": [
+    "github:shaysters/monster-camp-accessibility-mod"
+  ],
+  "lockRegistries": true
+}
