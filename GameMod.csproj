@@ -56,6 +56,10 @@
       <HintPath>$(ManagedDir)\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule" Condition="Exists('$(ManagedDir)\\UnityEngine.UnityWebRequestModule.dll')">
+      <HintPath>$(ManagedDir)\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.UI" Condition="Exists('$(ManagedDir)\\UnityEngine.UI.dll')">
       <HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath>
       <Private>false</Private>

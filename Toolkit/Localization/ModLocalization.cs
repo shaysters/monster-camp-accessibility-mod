@@ -85,6 +85,7 @@ namespace GameMod.Toolkit.Localization
             { "online_code_announce_fmt", "Online code: {0}. Press C to hear it again." },
             { "online_code_fmt", "Online code: {0}" },
             { "online_code_none", "No online code right now." },
+            { "update_available_fmt", "Monster Camp Accessibility version {0} is available. Run the installer to update." },
             { "choose_this_location_fmt", "{0}. Choose this location." },
             { "stats_unavailable", "Stats unavailable right now." },
             { "current_player", "Current player" },

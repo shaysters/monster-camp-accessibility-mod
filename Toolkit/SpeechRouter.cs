@@ -11,6 +11,12 @@ namespace GameMod.Toolkit
         private string _lastText = string.Empty;
         private SpeechCategory _lastCategory;
         private float _lastSpeakTime = -100f;
+
+        // Time.unscaledTime of the last thing spoken, so the update notice can wait for a pause.
+        public float LastSpeakTime => _lastSpeakTime;
+
+        // How many lines have been spoken since the game started.
+        public int SpeakCount { get; private set; }
         private float _suppressFocusUntil = -100f;
 
         public SpeechRouter(StructuredLog log, SpeechBridge bridge)
@@ -62,6 +68,7 @@ namespace GameMod.Toolkit
             _lastText = normalized;
             _lastCategory = category;
             _lastSpeakTime = Time.unscaledTime;
+            SpeakCount++;
             if (category == SpeechCategory.Event || category == SpeechCategory.Turn || category == SpeechCategory.System)
             {
                 var graceSeconds =

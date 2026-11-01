@@ -1,142 +1,107 @@
-# Monster Camp Accessibility Mod
+# Monster Camp Accessibility
 
-Version `1.0.0`
+Monster Camp Accessibility is a mod that makes Monster Prom 2: Monster Camp, the multiplayer dating sim by Beautiful Glitch, playable with a screen reader. It reads menus, character select and customization, packing, story events and icebreakers, turns, shops, camp locations and campfire seats, endings, results, unlocks and credits, the online menus, and the online code when you host a match.
 
-A MelonLoader accessibility mod for **Monster Prom 2: Monster Camp**.
+It works with NVDA, JAWS and other Windows screen readers, and falls back to Windows' built-in voices if no screen reader is running. If your screen reader has a braille display connected, everything the mod reads goes to braille too.
 
-## Links
+- Join the Discord to chat, get help or report problems: <https://discord.gg/KNDXhztGGK>
+- Support shaysters on Ko-fi: <https://ko-fi.com/shaysters>
 
-- Game on Steam: https://store.steampowered.com/app/1140270/Monster_Prom_2_Monster_Camp/
-- Game on GOG: https://www.gog.com/en/game/monster_prom_2_monster_camp
-- MelonLoader installer: https://github.com/LavaGang/MelonLoader.Installer/releases
+Version 1.0.1. See [CHANGELOG.md](CHANGELOG.md) for what has changed.
 
-## Install with the installer (recommended)
+## Requirements
 
-The installer sets up everything for you, including MelonLoader. It needs 64-bit Windows 10 or later and supports the Steam version of the game. For other stores, use the manual install below.
+- Monster Prom 2: Monster Camp for Windows (the full game), from Steam or GOG:
+  - Steam: <https://store.steampowered.com/app/1140270/Monster_Prom_2_Monster_Camp/>
+  - GOG: <https://www.gog.com/en/game/monster_prom_2_monster_camp>
+- Windows 10 or later.
+- A screen reader such as NVDA or JAWS (optional; without one, the mod uses Windows' built-in speech).
 
-1. Download `MonsterCampAccessibilityInstaller.exe` from the [latest release](https://github.com/shaysters/monster-camp-accessibility-mod/releases/latest).
-2. Close the game, then run the installer.
-   Windows SmartScreen may warn that the app is unrecognized, because the installer is not code-signed. Choose "More info", then "Run anyway".
-3. The installer finds the game through Steam. If it doesn't, use Browse to pick the folder that contains `MonsterCamp.exe`.
-4. Press Install. The installer adds MelonLoader if it is missing, then the mod, and removes files left by older versions of the mod.
+The mod has been tested with the Steam version. The GOG and DRM-free versions should work too, as long as MelonLoader loads in them, but they haven't been tested yet.
 
-Run the installer again at any time to update, repair, or uninstall the mod.
+## Installing
 
-## Manual install
+1. Close the game if it's running.
+2. Download **MonsterCampAccessibilityInstaller.exe** from the [latest release](https://github.com/shaysters/monster-camp-accessibility-mod/releases/latest). It needs 64-bit Windows 10 or later.
+3. Run it. Windows SmartScreen may warn that the app is unrecognized, because the installer is not code-signed. Choose **More info**, then **Run anyway**.
+4. The installer finds your Steam copy of the game by itself. For a GOG or DRM-free copy, or if it can't find the game, use the Browse button next to the game folder and choose the folder that contains `MonsterCamp.exe`.
+5. Choose **Install**. The installer adds MelonLoader if it's missing, then the mod, and removes files left by older versions of the mod.
+6. Start your screen reader, then start the game.
 
-The release zip `MonsterCampAccessibility.zip` contains:
+### Updating and uninstalling
 
-- `GameMod.dll`
-- `prism.dll`
-- `Prism/` (Prism license files)
-- `Localization/English.lang`
+Keep the installer. Run it again to update to the newest version, repair the mod, or uninstall it. Close the game first. The installer says on its first page when an update is available, and the mod tells you too, once the title menu has been read.
 
-1. Install MelonLoader 0.7.2 (x86) in the full game.
-2. Open the game's `Mods` folder.
-3. Copy the contents of the zip into that folder.
-4. Start the game.
+### Installing by hand
 
-This mod supports Steam and other PC storefront builds of the full game that load MelonLoader successfully.
+1. Install MelonLoader 0.7.2 (x86) into the game with the [MelonLoader installer](https://github.com/LavaGang/MelonLoader.Installer/releases).
+2. Download **MonsterCampAccessibility.zip** from the [latest release](https://github.com/shaysters/monster-camp-accessibility-mod/releases/latest). It contains `GameMod.dll`, `prism.dll`, the `Prism` folder (Prism's license files) and `Localization\English.lang`.
+3. Extract everything in it into the `Mods` folder inside the game folder. Common game folders are:
 
-Common game paths:
+   ```
+   Steam: C:\Program Files (x86)\Steam\steamapps\common\Monster Prom 2 - Monster Camp
+   GOG:   C:\Program Files (x86)\GOG Galaxy\Games\Monster Prom 2 - Monster Camp
+   ```
 
-- Steam: `C:\Program Files (x86)\Steam\steamapps\common\Monster Prom 2 - Monster Camp`
-- GOG: `C:\Program Files (x86)\GOG Galaxy\Games\Monster Prom 2 - Monster Camp`
+4. Start your screen reader, then start the game.
 
-Mod path:
+To uninstall a manual install, delete `GameMod.dll`, `prism.dll`, the `Prism` folder and the `Localization` folder from `Mods`. To remove MelonLoader too, use the MelonLoader installer's uninstall option.
 
-- `<Game Folder>\Mods`
+## Keys
 
-## Screen Reader Support
+| Key | What it does |
+|---|---|
+| Arrow keys | Move through most menus and choices. |
+| Enter | Confirm the current selection. |
+| Escape | Go back, or open the pause or back prompt on screens that have one. |
+| r | Repeat the last thing the mod said. |
+| t | Read the current player's stats. |
+| c | In an online lobby, read the online code again. |
 
-The mod uses Prism for speech.
+Notes:
 
-- If NVDA, JAWS, or another supported screen reader is running when the game starts, speech goes through it, and to your braille display if the screen reader supports it.
-- If no screen reader is running, the mod uses built-in Windows speech.
-- Start your screen reader before the game. If you start it after, restart the game to switch over.
+- Campfire spots say who is sitting there and how many seats are free.
+- When you host an online match, the online code is read digit by digit.
 
-Prism is licensed under the Mozilla Public License 2.0. Its license files are in the `Prism` folder.
+## Languages
 
-## Controls
+The mod follows the game's language wherever Monster Camp has its own text. The mod's own phrases can be translated with a language file in:
 
-### Game Controls
+```
+Mods\Localization\<Language>.lang
+```
 
-- Arrow keys: move through most menus and choices
-- Enter: confirm the current selection
-- Escape: go back or open the pause/back prompt on supported screens
+The included `English.lang` can be used as a template. Each line is `key=value`.
 
-### Mod Controls
+## Known limitations
 
-- `R`: repeat last spoken line
-- `T`: read current player stats
-- `C`: in an online lobby, read the online code again
-
-## Coverage
-
-This release covers:
-
-- menus
-- character select and customization
-- packing
-- story events and icebreakers
-- turn announcements
-- shops
-- camp locations, including who is sitting at each campfire spot and how many seats are free
-- endings, results, unlocks, and credits
-- online menus and dialogs, including the online code when you host a match (read digit by digit)
-- custom game options
-
-## Localization
-
-The mod follows the game's active language where Monster Camp already provides text.
-Mod-added accessibility phrases can be overridden with language files in:
-
-- `Mods/Localization/<Language>.lang`
-
-The included `English.lang` file can be used as a translation template. Each line uses:
-
-`key=value`
-
-## Known Limitation
-
-- Gallery images do not currently have alt text.
-
-## Platform
-
-Windows 10 or later only.
+- Gallery images don't have descriptions yet.
 
 ## Troubleshooting
 
-- **No speech at all:** make sure `GameMod.dll`, `prism.dll`, and the `Prism` folder are in `Mods`, and that MelonLoader is installed. Running the installer again (Repair) fixes most problems.
-- **Speech uses the Windows voice instead of your screen reader:** start your screen reader before the game, then restart the game.
-- **Still stuck:** the MelonLoader log is at `<Game Folder>\MelonLoader\Latest.log`. It shows whether the mod loaded and which speech backend Prism chose.
-
-## Building from source
-
-For developers. You need the .NET SDK (version 6 or later) and the game installed with MelonLoader, because the build uses the game's own files and MelonLoader's files from the game folder.
-
-Build, using the game's `Managed` folder and MelonLoader folder:
+MelonLoader keeps a log in the game folder:
 
 ```
-dotnet build GameMod.csproj -c Release "-p:ManagedDir=C:\Program Files (x86)\Steam\steamapps\common\Monster Prom 2 - Monster Camp\MonsterCamp_Data\Managed" "-p:MelonLoaderDir=C:\Program Files (x86)\Steam\steamapps\common\Monster Prom 2 - Monster Camp\MelonLoader"
+MelonLoader\Latest.log
 ```
 
-The built mod is `bin\Release\GameMod.dll`. `build.ps1` does the same build and, given `-ModsDir`, also copies the mod and `prism.dll` into the game's `Mods` folder for testing.
+It shows whether the mod loaded and which speech output Prism chose. If something goes wrong, include the log when you report it.
 
-Build the release zip into `dist\MonsterCampAccessibility.zip`:
+- **No speech at all:** make sure `GameMod.dll`, `prism.dll` and the `Prism` folder are in `Mods`, and that MelonLoader is installed. Running the installer again and choosing Repair fixes most problems.
+- **Windows speech talks instead of your screen reader:** start your screen reader before the game. If you start it after, restart the game.
 
-```
-powershell -ExecutionPolicy Bypass -File scripts\package-release.ps1
-```
-
-Add `-GameDir "<game folder>"` if the game is not in the default Steam folder.
-
-To publish a release: update `changes-latest.md`, build the zip, create a draft GitHub release with the zip attached (`gh release create vX.Y.Z --draft --notes-file changes-latest.md dist\MonsterCampAccessibility.zip`), then run the **Release** workflow from the Actions tab with the same tag. It builds the installer, writes `loadstone-release.json`, and publishes the release. The installer's package files are in `loadstone-packages/`, and its settings are in `installer/profile.json`.
+To report a problem or suggest something, open an issue on the [GitHub page](https://github.com/shaysters/monster-camp-accessibility-mod/issues).
 
 ## Credits
 
-- Shaysters
-- Codex
-- Claude
-- The installer is built with [Loadstone](https://github.com/bradjrenshaw/loadstone) by Bradley Renshaw.
-- Speech uses [Prism](https://github.com/ethindp/prism) by Ethin Probst, licensed under the Mozilla Public License 2.0.
+This mod was developed by [Shaysters](https://github.com/shaysters), with code written by Codex (OpenAI) and Claude (Anthropic).
+
+The installer is built with [Loadstone](https://github.com/bradjrenshaw/loadstone) by [Bradley Renshaw](https://github.com/bradjrenshaw).
+
+Speech is provided by [Prism](https://github.com/ethindp/prism) by Ethin Probst, under the MPL-2.0 license. Its license files are in the `Prism` folder.
+
+Monster Prom 2: Monster Camp is made by Beautiful Glitch. This mod isn't affiliated with or endorsed by Beautiful Glitch.
+
+## For developers
+
+Build and release instructions are in [DEVELOPING.md](DEVELOPING.md).

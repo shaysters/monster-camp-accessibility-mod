@@ -2,13 +2,15 @@ using System;
 using MelonLoader;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(GameMod.ModMain), "Monster Camp Accessibility Mod", "1.0.0", "Codex and Shaysters")]
+[assembly: MelonInfo(typeof(GameMod.ModMain), "Monster Camp Accessibility Mod", GameMod.ModMain.Version, "Codex and Shaysters")]
 [assembly: MelonGame(null, null)]
 
 namespace GameMod
 {
     public sealed class ModMain : MelonMod
     {
+        internal const string Version = "1.0.1";
+
         private Toolkit.ToolkitBootstrap _toolkit;
 
         public override void OnInitializeMelon()
@@ -46,6 +48,7 @@ namespace GameMod
             }
 
             Toolkit.Hooks.OnlineCodeHooks.Tick();
+            Toolkit.UpdateCheck.Tick();
         }
     }
 }
